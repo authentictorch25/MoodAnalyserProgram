@@ -11,7 +11,7 @@ namespace MoodAnalyserProblem
             Console.WriteLine("Type how you feeling right now:");
             string mood = Console.ReadLine();
             MoodAnalyser moodAnalyser = new MoodAnalyser(mood);
-            Console.WriteLine("Currently you are in: " + moodAnalyser.AnalyseMood());
+            Console.WriteLine("Currently you are : " + moodAnalyser.AnalyseMood());
         }
 
     }
