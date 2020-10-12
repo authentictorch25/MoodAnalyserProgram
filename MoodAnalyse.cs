@@ -1,10 +1,11 @@
-﻿using System;
+﻿using MoodAnalyserProblem;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace MoodAnalyserProblem
 {
-    class MoodAnalyser
+    public class MoodAnalyser
     {
         string message;
         public MoodAnalyser(string message)
@@ -12,12 +13,34 @@ namespace MoodAnalyserProblem
             this.message = message;
         }
         public string AnalyseMood()
-        {
-            if (message.ToUpper().Contains("SAD"))
-                return "Sad ";
-            else
-                return "Happy";
+            {
+            try
+            {
+                if (message.Equals(string.Empty))
+                {
+                    throw new MoodAnalyserCustomException(MoodAnalyserCustomException.ExceptionType.EMPTY_MESSAGE, "Mood should not be empty");
+                }
+                if (message.ToUpper().Contains("SAD"))
+                {
+                    Console.WriteLine("Your current mood : SAD");
+                    return "SAD";
+                }
+                else
+                {
+                    Console.WriteLine("Your current mood : HAPPY");
+                    return "HAPPY";
+                }
+            }
+            catch (NullReferenceException)
+            {
+                throw new MoodAnalyserCustomException(MoodAnalyserCustomException.ExceptionType.NULL_MESSAGE, "Mood should not be null");
+            }
+            catch (MoodAnalyserCustomException exception)
+            {
+                Console.WriteLine(exception.Message);
+                return exception.Message;
+            }
         }
-
     }
+
 }
