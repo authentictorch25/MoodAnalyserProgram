@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MoodAnalyserProblem
 {
-    class MoodAnalyser
+    public class MoodAnalyser
     {
         string message;
         public MoodAnalyser(string message)
@@ -14,9 +14,9 @@ namespace MoodAnalyserProblem
         public string AnalyseMood()
         {
             if (message.ToUpper().Contains("SAD"))
-                return "Sad ";
+                return "SAD";
             else
-                return "Happy";
+                return "HAPPY";
         }
 
     }
