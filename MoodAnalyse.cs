@@ -12,11 +12,19 @@ namespace MoodAnalyserProblem
             this.message = message;
         }
         public string AnalyseMood()
+       
         {
-            if (message.ToUpper().Contains("SAD"))
-                return "SAD";
-            else
+            try
+            {
+                if (message.ToUpper().Contains("SAD"))
+                    return "SAD";
+                else
+                    return "HAPPY";
+            }
+            catch
+            {
                 return "HAPPY";
+            }
         }
 
     }
